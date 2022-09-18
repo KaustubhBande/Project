@@ -1,0 +1,56 @@
+package com.project.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.project.entity.Role;
+import com.project.entity.User;
+import com.project.repositories.UserRepo;
+import com.project.services.RoleService;
+import com.project.services.UserService;
+
+@RestController
+public class UserController {
+
+	@Autowired
+	private UserService userService;
+	
+	@Autowired
+	private RoleService roleService; 
+	
+	@PostMapping("/login")
+	public String inputUser() {
+		User user = new User();
+		user.setName("Nayan");
+		user.setPassword("Nayan@123");
+		user.setEmail("nb@gmail.com");
+		user.setContactNo("9175509215");
+		user.setAddress1("Ramkrishna");
+		user.setAddress2("Sainagar");
+		user.setCity("Surat");
+		user.setState("Gujarat");
+		user.setPincode(415432);
+		
+		Role role = roleService.fetchRoleByName("Manager");
+		user.setUserRole(role);
+		userService.addUser(user);
+		
+//		return userService.saveUser(user);
+		return "Saved successfully";
+	}
+	
+	@GetMapping("/getuser")
+	public User getUser() {
+		User user = userService.fetchUserByEmail("kb@gmail.com"); 
+		return user;
+	}
+	
+	@GetMapping("/getdata")
+	public String getData() {
+		
+		return "DATA";
+	}
+}

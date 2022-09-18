@@ -1,0 +1,175 @@
+package com.project.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Entity
+@Table(name="user_tbl")
+public @Data class User {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
+	
+	private String name;
+	private String password;
+	private String email;
+	
+	@Column(name="contact_no")
+	private String contactNo;
+	
+	@Column(name="add_1")
+	private String address1;
+	
+	@Column(name="add_2")
+	private String address2;
+	
+	private String city;
+	private String state;
+	private int pincode;
+	
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="role_id")
+	private Role userRole;
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+	public String getContactNo() {
+		return contactNo;
+	}
+
+
+	public void setContactNo(String contactNo) {
+		this.contactNo = contactNo;
+	}
+
+
+	public String getAddress1() {
+		return address1;
+	}
+
+
+	public void setAddress1(String address1) {
+		this.address1 = address1;
+	}
+
+
+	public String getAddress2() {
+		return address2;
+	}
+
+
+	public void setAddress2(String address2) {
+		this.address2 = address2;
+	}
+
+
+	public String getCity() {
+		return city;
+	}
+
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+
+	public String getState() {
+		return state;
+	}
+
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+
+	public int getPincode() {
+		return pincode;
+	}
+
+
+	public void setPincode(int pincode) {
+		this.pincode = pincode;
+	}
+
+
+	public Role getUserRole() {
+		return userRole;
+	}
+
+
+	public void setUserRole(Role userRole) {
+		this.userRole = userRole;
+	} 
+	
+	public User(){
+		
+	}
+
+
+	public User(int id, String name, String password, String email, String contactNo, String address1, String address2,
+			String city, String state, int pincode) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.password = password;
+		this.email = email;
+		this.contactNo = contactNo;
+		this.address1 = address1;
+		this.address2 = address2;
+		this.city = city;
+		this.state = state;
+		this.pincode = pincode;
+	}
+	
+}

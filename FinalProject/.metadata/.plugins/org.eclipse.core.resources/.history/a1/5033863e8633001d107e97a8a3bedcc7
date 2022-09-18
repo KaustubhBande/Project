@@ -1,0 +1,50 @@
+package com.project.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.project.entity.Role;
+import com.project.entity.User;
+import com.project.repositories.UserRepo;
+import com.project.services.RoleService;
+import com.project.services.UserService;
+
+@RestController
+public class UserController {
+
+	@Autowired
+	private UserService userService;
+	
+	@Autowired
+	private UserRepo userRepo;
+	
+	@Autowired
+	private User user; 
+	
+	@Autowired
+	private RoleService roleService; 
+	
+	@PostMapping("/login")
+	public String inputUser() {
+		
+		user.setName("Kaustubh");
+		user.setPassword("Kaus750@pass");
+		user.setEmail("kb@gmail.com");
+		user.setContactNo("7507820551");
+		user.setAddress1("Sairatna");
+		user.setAddress2("ManikBaug");
+		user.setCity("Pune");
+		user.setState("Maharashtra");
+		user.setPincode(411051);
+		
+		Role role = roleService.fetchRoleByName("User");
+		user.setUserRole(role);
+		userRepo.save(user);
+		
+//		return userService.saveUser(user);
+		return "Saved successfully";
+	}
+}

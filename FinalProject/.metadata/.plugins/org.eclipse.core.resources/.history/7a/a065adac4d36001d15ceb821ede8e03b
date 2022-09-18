@@ -1,0 +1,40 @@
+package com.project.services.impl;
+
+import java.util.List;
+
+import com.project.entity.Turf;
+import com.project.services.TurfService;
+
+public class TurfServiceImpl implements TurfService {
+
+	@Override
+	public Turf addTurf(Turf turf) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Turf getTurf(Integer turfId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Turf> getAllTurfs() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Turf updateTurf(Turf turf, Integer turfId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteTurf(Integer turfId) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.project.payloads;
+
+public class ApiResponse {
+
+}

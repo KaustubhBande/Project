@@ -1,0 +1,16 @@
+package com.project.services;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
+import org.springframework.stereotype.Component;
+
+import com.project.entity.Role;
+
+@Component
+public interface RoleService {
+
+	//Read
+	Role fetchRoleByName(String name);
+}

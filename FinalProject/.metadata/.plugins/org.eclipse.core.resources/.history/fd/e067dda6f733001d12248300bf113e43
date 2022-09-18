@@ -1,0 +1,6 @@
+package com.project.entity;
+
+public class Sample {
+	int a=1;
+	String b = "OK";
+}

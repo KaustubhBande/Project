@@ -1,0 +1,7 @@
+package com.project.services.impl;
+
+import com.project.services.UserService;
+
+public class RoleServicesImpl extends UserService {
+
+}

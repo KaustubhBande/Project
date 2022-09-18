@@ -1,0 +1,23 @@
+package com.project.services;
+
+import java.util.List;
+
+import com.project.entity.BookingDetails;
+
+public interface BookingDetailsService {
+
+	//create
+	BookingDetails addBooking(BookingDetails bookingDetails);
+	
+	//Read
+	BookingDetails getBooking(Integer bookingId);
+	
+	//Read
+	List<BookingDetails> getAllBookings();
+	
+	//Update
+	BookingDetails updateBooking(BookingDetails bookingDetails, Integer bookingId);
+	
+	//Delete
+	void deleteBooking(Integer bookingId);
+}

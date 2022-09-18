@@ -1,0 +1,27 @@
+package com.project.entity;
+
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Entity
+@Table(name="role_tbl")
+public @Data class Role {
+	
+	@Id
+	@Column(name="role_id")
+	private int roleId;
+	
+	@Column(name="role_name")
+	private String roleName;
+	
+	@OneToMany(mappedBy="userRole")
+	private List<User> users;
+}

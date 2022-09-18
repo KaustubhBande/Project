@@ -1,0 +1,28 @@
+package com.project.services.impl;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.project.entity.Role;
+import com.project.entity.User;
+import com.project.repositories.UserRepo;
+import com.project.services.UserService;
+
+@Service
+public class RoleServicesImpl implements RoleService {
+
+	@PersistenceContext
+	private EntityManager entityManager;
+	
+	public Role fetchRoleByName(String name) {
+		Query query = entityManager.createQuery("select r from Role r where r.roleName = : name");
+		query.setParameter("name", name);
+		Role role = (Role)query.getSingleResult();
+		return role;
+	}
+	
+}

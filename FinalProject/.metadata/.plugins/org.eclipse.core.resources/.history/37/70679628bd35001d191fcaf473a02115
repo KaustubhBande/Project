@@ -1,0 +1,8 @@
+package com.project.entity;
+
+import lombok.Data;
+
+public @Data class Sample {
+	private int a=1;
+	private String b = "OK";
+}
